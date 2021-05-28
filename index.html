@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework-D10</title>
+    <style>
+        .body
+        {
+            max-width: 500px;
+            margin: auto;
+        }
+        img 
+        {
+            width: 100px;
+            height: 50px;
+        }
+        .HeaderH1
+        {
+            margin: auto;
+        }
+        .para
+        {
+            border-style: outset;
+            margin: 15px;
+        }
+        #Cells
+        {
+            border-radius: 25px;
+            background-color: rgb(253, 184, 127);
+        }
+        .nestedLi
+        {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .hidingDiv
+        {
+            display: none;
+        }
+        #Cells>tr>td{
+            color: green;
+
+        
+        }
+    </style>
+</head>
+<body class="body">
+    <div>
+        <p class="para">hellow how are you</p>
+        <p class="para">this is just 2 test margin</p>
+        <ul>
+            <li>
+                first UL
+            </li>
+            <ul>
+                <li class="nestedLi">first nested</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="hidingDiv">This is just 4 hiding it</div>
+
+    <h1 class="HeaderH1">50 Exercises of Strive</h1>
+    <ol>
+        <li>First orderd Item</li>
+        <li>second orderd Item</li>
+    </ol>
+    <hr>
+    <table id="Cells"> 
+        <tr>
+            <td colspan="2">hi</td>  
+            <td>hi</td>
+            <td>whut</td>
+        </tr>
+    </table>
+
+    <a id="myLink" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg;"></a>
+   
+   <footer>Ismail Turgul is a 30 years old chef who discovered programming for himself. And he likes dogs</footer>
+   <script>
+
+function add_img() 
+    {
+        let img = document.createElement('img');
+        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg';
+        let addedImg = document.getElementById('Cells').appendChild(img);
+        //addedImg = document.getElementById('myLink').href;  -- get a string, but i want the url
+    }
+
+const creatingCells = function()
+    {
+        for (let i = 1; i < 5; i++) 
+        {
+            let row = document.createElement("tr");
+            let newRow = document.getElementById("Cells").appendChild(row)
+            if (i % 2 === 0)
+            {
+                add_img();
+                addedImg = document.getElementById('myLink').href;
+            }   
+            for (let j = 1; j < 6; j++)
+        {
+            let column = document.createElement("td");
+            let newCell = newRow.appendChild(column) ;
+            newCell.innerText = j;
+        }
+        }
+    }
+    creatingCells();
+
+    let props = 
+            {
+                name:    "Ismail",
+                surname: "Turgul",
+                email:   "turgul@web.de"
+            }
+
+        //ex3
+        delete props.email;
+        console.log(props)
+                //ex4
+                let array10 = ["hi","this","is","just", "4", "the", "exercise","for","the","homework"]
+        
+        //ex5
+        console.log(array10);
+
+        let number100 = []
+        for (let start = 0; start < 100; start++)
+            {
+                let randomNumber = Math.floor(Math.random() * 1000);
+                number100.push(randomNumber);
+            }
+            console.log(number100);
+
+        const maxValue = function()
+        {
+            let maxValueInArray= Math.max(...number100);
+            let minValueInArray= Math.min(...number100);
+            console.log(`highest number: ${maxValueInArray}`)
+            console.log(`min number: ${minValueInArray}`)
+        }
+        maxValue();
+
+        let arr = [];
+        for(let i = 0; i < 10; i++){
+            let current = [];
+            for(let j = 0; j < 10; j++)
+            current.push(Math.floor(Math.random() * 10));
+            arr.push(current);
+        }
+        console.log(arr)
+
+        const biggestArray = function()
+        {
+            let array1 = [2,4];
+            let array2 = [1,2,3];
+            let check1 = array1.length;
+            let check2 = array2.length;
+            
+            if( check1 > check2)
+            {
+                console.log(array1);
+            }
+            else
+            {
+                console.log(array2);
+            }
+        }
+        biggestArray();
+
+        const highestSumOfArrays = function()
+        {
+            let array1 = [2,5];
+            let array2 = [1,2,3];
+
+            let sum1 = array1.reduce(function(a, b)
+            {
+            return a + b;
+            }, 0);
+
+            let sum2 = array2.reduce(function(a, b)
+            {
+            return a + b;
+            }, 0);
+            
+            if( sum1 > sum2)
+            {
+                console.log(array1);
+            }
+            else
+            {
+                console.log(array2);
+            }
+        }
+        highestSumOfArrays();
+    </script>
+</body>
+</html>
+<!--
+
+        HTML EXERCISES
+
+        1) Create a title for the page                    --- OK
+        2) Create a heading                               --- OK
+        3) Create an ordered list                         --- OK 
+        4) Create a table with 5 columns and 4 rows       --- OK  
+        5) Add an image to each second cell of every row  --- ahhh adding to!! the second cell a img  ( have to replace number with img)
+        6) Add a anchor link for every image              --- Not included
+        7) Merge together 2 table cells                   --- ahhyy..
+        8) Divide the page using a horizontal line        --- OK
+        9) Create a container with a nested paragraph and a nested unordered list  --- contains UnordedList but no paragraph
+        10) Create a footer with some information about the page creator  - OK
+
+        CSS EXERCISES
+
+        11) Give a maximum width to the body and center it in the page  ----OK. 
+        12) Set every h1 to be centered                                 ----OK. h1
+        13) Change the color of each link in the page                   ----dont have links
+        14) Create a class with a border                                ----OK div
+        15) Set table to have rounded corners                           ----OK table
+        16) Add margin between every paragraph                          ----OK para
+        17) Create a class which change font size and boldness          ----OK nestedLi
+        18) Create a class to hide a content                            ----OK display : none
+        19) Add a green border to each td                               ---- ok
+
+        
+        20) Add a dotted red border to each tr (note: tr does not accept a border property ;-) )
+
+        JS EXERCISES
+
+        21) Given variable x = "John" and y = "Doe", write on the console log "John <> Doe" ---ok
+        22) Create an object with properties such name, surname, email                      ---ok  
+        23) Delete Email from the previously created object                                 ---ok
+        24) Create an array with 10 strings in it                                           ---ok  
+        25) Print in the console every string in the previous array                         ---ok
+        26) Create an array with 100 random numbers in it                                   ---ok
+        27) Wrote a function to get the MAX and the MIN from the previously created array   ---ok
+        28) Create an array of arrays, in which every array has 10 random numbers           ---ok
+        29) Create a function that gets 2 arrays and returns the longest one                ---
+        30) Create a function that gets 2 arrays of numbers and returns the one with the higher sum of values
+
+        DOM 
+
+        31) Get element with ID "container" from the page
+        32) Get every "td" from the page
+        33) Create a cycle that prints the text inside every td of the page
+        34) Write a function to change the heading of the page
+        35) Write a function to add an extra row to the table
+        36) Write a function to add the class "test" to each row in the table
+        37) Write a function to add a red background to every link in the page
+        38) Console log "Page loaded" when the page is correctly loaded
+        39) Write a function to add new items to a UL
+        40) Write a function to empty a list
+
+        EXTRA 
+
+        41) Add an eventListener to alert when the mouse is over a link, displaying the URL
+        42) Add a button to hide every image on the page
+        43) Add a button to hide and show the table from the page
+        44) Write a function to sum every number inside the TD (if the content is numeric)
+        45) Delete the last letter from the title each time the user clicks on it
+        46) Change a single TD background color when the user clicks on it
+        47) Add a button DELETE, on click it should delete a random TD from the page
+        48) Add a pink border to a cell when the mouse is over it
+        49) Write a function to add a table with 4 rows and 3 columns programmatically
+        50) Write a function to remove the table from the page
+    -->
