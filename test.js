@@ -41,3 +41,11 @@
         {
             number100 += Mathfloor(Math.random * 1000)
         }
+
+
+        const biggestArray = function(array1,array2)
+        {
+            array1 = [2,4];
+            array2 = [1,2,3];
+            return Math.max(array1, array2);
+        }

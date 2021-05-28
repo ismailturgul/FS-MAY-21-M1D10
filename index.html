@@ -33,7 +33,7 @@
             font-size: 20px;
             font-weight: bold;
         }
-        .hidingDiv
+        #Container
         {
             display: none;
         }
@@ -57,7 +57,7 @@
             </ul>
         </ul>
     </div>
-    <div class="hidingDiv">This is just 4 hiding it</div>
+    <div id="Container">This is just 4 hiding it</div>
 
     <h1 class="HeaderH1">50 Exercises of Strive</h1>
     <ol>
@@ -72,40 +72,77 @@
             <td>whut</td>
         </tr>
     </table>
-
-    <a id="myLink" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg;"></a>
-   
+   <a class="google" href="www.google.de">Google</a>
+   <a class="google" href="www.google.de">Google</a>
+   <a class="google" href="www.google.de">Youtube</a>
    <footer>Ismail Turgul is a 30 years old chef who discovered programming for himself. And he likes dogs</footer>
-   <script>
-
-function add_img() 
+  
+  <script>
+    
+    const backgroundColorLinks = function()
     {
-        let img = document.createElement('img');
-        img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg';
-        let addedImg = document.getElementById('Cells').appendChild(img);
-        //addedImg = document.getElementById('myLink').href;  -- get a string, but i want the url
+
+        let checkLinks = document.getElementsByTagName("a").length
+        for(let i = 0; i < checkLinks; i++)
+        {
+           
+            document.getElementsByTagName("a")[i].style.backgroundColor = "red"
+        }
+
+
     }
 
-const creatingCells = function()
+    const changeHeader = function(changeHeading)
     {
-        for (let i = 1; i < 5; i++) 
+        document.getElementsByTagName("h1")[0].innerText = changeHeading
+     
+    }
+
+    function add_img() 
         {
-            let row = document.createElement("tr");
-            let newRow = document.getElementById("Cells").appendChild(row)
-            if (i % 2 === 0)
+            let img = document.createElement('img');
+            img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg';
+            document.getElementById('Cells').appendChild(img);
+            
+            let images = document.getElementsByTagName("img");
+            
+            for(let i = 0; i < images.length; i++)
             {
-                add_img();
-                addedImg = document.getElementById('myLink').href;
-            }   
-            for (let j = 1; j < 6; j++)
+            
+            let image = images[i];
+
+            image.onclick = function(event)
+            {   
+                window.location.href = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Golden_Retriever_Carlos_%2810581910556%29.jpg/1280px-Golden_Retriever_Carlos_%2810581910556%29.jpg";
+                if (event === window.onload)
+                {
+                    alert("Page loaded");
+                } 
+            };
+}
+        }
+
+    const creatingCells = function()
         {
-            let column = document.createElement("td");
-            let newCell = newRow.appendChild(column) ;
-            newCell.innerText = j;
+            for (let i = 1; i < 5; i++) 
+            {
+                let row = document.createElement("tr");
+                let newRow = document.getElementById("Cells").appendChild(row)
+                console.log(newRow)
+                if (i % 2 === 0)
+                {
+                    add_img();
+                }   
+                for (let j = 1; j < 6; j++)
+            {
+                let column = document.createElement("td");
+                let newCell = newRow.appendChild(column) ;
+                console.log(newCell)
+                newCell.innerText = j;
+            }
+            }
         }
-        }
-    }
-    creatingCells();
+        creatingCells();
 
     let props = 
             {
@@ -141,7 +178,8 @@ const creatingCells = function()
         maxValue();
 
         let arr = [];
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < 10; i++)
+        {
             let current = [];
             for(let j = 0; j < 10; j++)
             current.push(Math.floor(Math.random() * 10));
@@ -203,8 +241,8 @@ const creatingCells = function()
         2) Create a heading                               --- OK
         3) Create an ordered list                         --- OK 
         4) Create a table with 5 columns and 4 rows       --- OK  
-        5) Add an image to each second cell of every row  --- ahhh adding to!! the second cell a img  ( have to replace number with img)
-        6) Add a anchor link for every image              --- Not included
+        5) Add an image to each second cell of every row  --- ok
+        6) Add a anchor link for every image              --- ok
         7) Merge together 2 table cells                   --- ahhyy..
         8) Divide the page using a horizontal line        --- OK
         9) Create a container with a nested paragraph and a nested unordered list  --- contains UnordedList but no paragraph
@@ -235,21 +273,21 @@ const creatingCells = function()
         26) Create an array with 100 random numbers in it                                   ---ok
         27) Wrote a function to get the MAX and the MIN from the previously created array   ---ok
         28) Create an array of arrays, in which every array has 10 random numbers           ---ok
-        29) Create a function that gets 2 arrays and returns the longest one                ---
-        30) Create a function that gets 2 arrays of numbers and returns the one with the higher sum of values
+        29) Create a function that gets 2 arrays and returns the longest one                ---ok
+        30) Create a function that gets 2 arrays of numbers and returns the one with the higher sum of values    ---ok
 
         DOM 
 
-        31) Get element with ID "container" from the page
-        32) Get every "td" from the page
-        33) Create a cycle that prints the text inside every td of the page
-        34) Write a function to change the heading of the page
-        35) Write a function to add an extra row to the table
-        36) Write a function to add the class "test" to each row in the table
-        37) Write a function to add a red background to every link in the page
-        38) Console log "Page loaded" when the page is correctly loaded
-        39) Write a function to add new items to a UL
-        40) Write a function to empty a list
+        31) Get element with ID "container" from the page                           ok
+        32) Get every "td" from the page                                            ok
+        33) Create a cycle that prints the text inside every td of the page         ok
+        34) Write a function to change the heading of the page                      ok
+        35) Write a function to add an extra row to the table                       ok
+        36) Write a function to add the class "test" to each row in the table       ok
+        37) Write a function to add a red background to every link in the page      ok
+        38) Console log "Page loaded" when the page is correctly loaded             --
+        39) Write a function to add new items to a UL                               --
+        40) Write a function to empty a list                                        --
 
         EXTRA 
 
